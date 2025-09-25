@@ -159,20 +159,20 @@ function ListCard({
   title,
   items,
   tone = "neutral",
-  rootRef,
+  rootEl,
   delay = 0,
 }: {
   title: string;
   items: string[];
   tone?: "neutral" | "brand";
-  rootRef?: React.RefObject<HTMLElement>;
+   rootEl?: Element | null;  
   delay?: number;
 }) {
-  const { ref, shown } = useScrollReveal(rootRef, 0.15);
+  const { ref, shown } = useScrollReveal(rootEl, 0.15);
   const brand = tone === "brand";
   return (
     <div
-      ref={ref as any}
+      ref={ref }
       className={`rounded-2xl border p-4 sm:p-5 transition-all duration-500 ${
         shown ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
       } ${brand ? "bg-[color:var(--brand,#28B7D5)] text-white border-transparent" : "bg-white ring-1 ring-slate-200"}`}
@@ -195,12 +195,16 @@ function ListCard({
 }
 
 /** IntersectionObserver helper that works within a scrollable root (the modal body) */
-function useScrollReveal(rootRef?: React.RefObject<HTMLElement>, threshold = 0.2) {
+// Hook
+/** IntersectionObserver helper that works within a scrollable root (the modal body) */
+function useScrollReveal(rootEl?: Element | null, threshold = 0.2) {
   const ref = React.useRef<HTMLDivElement | null>(null);
   const [shown, setShown] = React.useState(false);
+
   React.useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
     const io = new IntersectionObserver(
       ([e]) => {
         if (e.isIntersecting) {
@@ -208,13 +212,16 @@ function useScrollReveal(rootRef?: React.RefObject<HTMLElement>, threshold = 0.2
           io.disconnect();
         }
       },
-      { root: rootRef?.current ?? null, threshold }
+      { root: rootEl ?? null, threshold }
     );
+
     io.observe(el);
     return () => io.disconnect();
-  }, [rootRef?.current, threshold]);
+  }, [rootEl, threshold]);
+
   return { ref, shown };
 }
+
 
 /* -------------------------------- Modal -------------------------------- */
 function DomainModal({
@@ -246,7 +253,8 @@ function DomainModal({
     return () => window.removeEventListener("keydown", onKey);
   }, [open, onClose]);
 
-  const scrollerRef = React.useRef<HTMLDivElement>(null);
+const scrollerRef = React.useRef<HTMLDivElement>(null);
+
 
   if (!open && !mounted) return null;
   const Icon = data?.icon ?? Clock;
@@ -301,7 +309,7 @@ function DomainModal({
         {/* Scrollable body */}
         <div ref={scrollerRef} className="overflow-y-auto px-6 sm:px-8 py-6 space-y-6">
           {/* Collab + blurb */}
-          <RevealBlock rootRef={scrollerRef}>
+          <RevealBlock rootEl={scrollerRef.current}>
             <div className="rounded-2xl border border-slate-200 p-4 sm:p-5 bg-white">
               <p className="text-slate-700">{data?.collab}</p>
               <p className="mt-2 text-slate-600">{data?.blurb}</p>
@@ -316,12 +324,12 @@ function DomainModal({
 
           {/* Problems / Solutions */}
           <div className="grid sm:grid-cols-2 gap-4">
-            <ListCard title="Common Challenges" items={data?.problems ?? []} rootRef={scrollerRef} delay={0} />
-            <ListCard title="Our Solutions" items={data?.solutions ?? []} tone="brand" rootRef={scrollerRef} delay={80} />
+            <ListCard title="Common Challenges" items={data?.problems ?? []} rootEl={scrollerRef.current} delay={0} />
+            <ListCard title="Our Solutions" items={data?.solutions ?? []} tone="brand" rootEl={scrollerRef.current} delay={80} />
           </div>
 
           {/* Capabilities */}
-          <RevealBlock rootRef={scrollerRef} delay={60}>
+          <RevealBlock rootEl={scrollerRef.current} delay={60}>
             <div>
               <h4 className="text-sm font-semibold text-slate-600">Capabilities</h4>
               <div className="mt-2 flex flex-wrap gap-2">
@@ -339,7 +347,7 @@ function DomainModal({
           </RevealBlock>
 
           {/* Related Work */}
-          <RevealBlock rootRef={scrollerRef} delay={80}>
+          <RevealBlock rootEl={scrollerRef.current} delay={80}>
             <div>
               <h4 className="text-sm font-semibold text-slate-600">Related Work</h4>
               <div className="mt-3 grid sm:grid-cols-2 gap-3">
@@ -362,7 +370,7 @@ function DomainModal({
           </RevealBlock>
 
           {/* Footer actions inside scroller for mobile reachability */}
-          <RevealBlock rootRef={scrollerRef} delay={60}>
+          <RevealBlock rootEl={scrollerRef.current} delay={60}>
             <div className="flex flex-wrap items-center justify-end gap-3 pt-1">
               <a
                 href="/contact?topic=domain"
@@ -385,13 +393,13 @@ function DomainModal({
 /** Simple block that reveals when scrolled into view within a custom root */
 function RevealBlock({
   children,
-  rootRef,
+  rootEl,
   delay = 0,
-}: React.PropsWithChildren<{ rootRef?: React.RefObject<HTMLElement>; delay?: number }>) {
-  const { ref, shown } = useScrollReveal(rootRef, 0.15);
+}:  React.PropsWithChildren<{ rootEl?: Element | null; delay?: number }>) {
+  const { ref, shown } = useScrollReveal(rootEl, 0.15);
   return (
     <div
-      ref={ref as any}
+      ref={ref }
       className={`transition-all duration-500 ${shown ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
