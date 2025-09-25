@@ -1,4 +1,7 @@
+import CaseStudies from "@/components/site/CaseStudies";
+import DomainsExpertise from "@/components/site/DomainsExpertise";
 import Section from "@/components/site/Section";
+import PortfolioHero from "@/components/site/PortfolioHero";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
 const CASES = [
@@ -9,15 +12,13 @@ const CASES = [
 
 export default function Portfolio() {
   return (
-    <Section title="Case studies">
-      <div className="grid md:grid-cols-3 gap-6">
-        {CASES.map(c => (
-          <Card key={c.t} className="shadow-soft">
-            <CardHeader><CardTitle>{c.t}</CardTitle></CardHeader>
-            <CardContent className="text-muted">{c.d}</CardContent>
-          </Card>
-        ))}
-      </div>
-    </Section>
+    <>
+     <PortfolioHero/>
+              <CaseStudies/>
+              <DomainsExpertise/>
+              </>
+    
+             
+   
   );
 }

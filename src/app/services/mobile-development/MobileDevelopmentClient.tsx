@@ -24,6 +24,7 @@ import {
   Database,
   ArrowRight,
 } from "lucide-react";
+import { useContactSubmit } from "@/hooks/useContactSubmit";
 
 /** Brand color */
 const BRAND = "#28B7D5";
@@ -213,6 +214,8 @@ function FAQ({ q, a }: { q: string; a: string }) {
 
 /* --------------------------------- Page --------------------------------- */
 export default function MobileDevelopmentClient() {
+     const { onSubmit, submitting, modalElement } = useContactSubmit(BRAND);
+  
   return (
     <main className="bg-white">
       {/* HERO */}
@@ -448,41 +451,61 @@ export default function MobileDevelopmentClient() {
               </div>
             </div>
 
-            <form className="rounded-2xl bg-white/95 backdrop-blur p-5 sm:p-6 ring-1 ring-slate-200 grid gap-3" onSubmit={(e) => e.preventDefault()}>
-              <input
-                placeholder="Full Name"
-                className="h-11 rounded-lg border border-slate-200 px-3 outline-none focus:border-[color:var(--brand,#28B7D5)]"
-                style={{ ["--brand" as any]: BRAND }}
-              />
-              <input
-                type="email"
-                placeholder="Email"
-                className="h-11 rounded-lg border border-slate-200 px-3 outline-none focus:border-[color:var(--brand,#28B7D5)]"
-                style={{ ["--brand" as any]: BRAND }}
-              />
-              <input
-                type="tel"
-                placeholder="Number (optional)"
-                className="h-11 rounded-lg border border-slate-200 px-3 outline-none focus:border-[color:var(--brand,#28B7D5)]"
-                style={{ ["--brand" as any]: BRAND }}
-              />
-              <textarea
-                rows={3}
-                placeholder="Describe Your App (platforms, features, timeline)"
-                className="rounded-lg border border-slate-200 px-3 py-2 outline-none focus:border-[color:var(--brand,#28B7D5)]"
-                style={{ ["--brand" as any]: BRAND }}
-              />
-              <p className="text-xs text-slate-500">
-                By submitting this form, you agree to our{" "}
-                <Link href="/privacy" className="underline font-medium" style={{ color: BRAND }}>
-                  Privacy Policy
-                </Link>.
-              </p>
-              <button className="mt-1.5 h-11 rounded-full font-semibold text-white transition hover:shadow-lg" style={{ backgroundColor: BRAND, boxShadow: "0 8px 22px rgba(40,183,213,.22)" }}>
-                Get in Touch Now
-              </button>
-            </form>
+            <form
+  className="rounded-2xl bg-white/95 backdrop-blur p-5 sm:p-6 ring-1 ring-slate-200 grid gap-3"
+  onSubmit={onSubmit}
+>
+  <input
+    name="name"
+    placeholder="Full Name"
+    required
+    className="h-11 rounded-lg border border-slate-200 px-3 outline-none focus:border-[color:var(--brand,#28B7D5)]"
+    style={{ ["--brand" as any]: BRAND }}
+  />
+  <input
+    name="email"
+    type="email"
+    placeholder="Email"
+    required
+    className="h-11 rounded-lg border border-slate-200 px-3 outline-none focus:border-[color:var(--brand,#28B7D5)]"
+    style={{ ["--brand" as any]: BRAND }}
+  />
+  <input
+    name="phone"
+    type="tel"
+    placeholder="Number (optional)"
+    className="h-11 rounded-lg border border-slate-200 px-3 outline-none focus:border-[color:var(--brand,#28B7D5)]"
+    style={{ ["--brand" as any]: BRAND }}
+  />
+  <textarea
+    name="message"
+    rows={3}
+    placeholder="Describe Your Project Need"
+    className="rounded-lg border border-slate-200 px-3 py-2 outline-none focus:border-[color:var(--brand,#28B7D5)]"
+    style={{ ["--brand" as any]: BRAND }}
+  />
+
+  <p className="text-xs text-slate-500">
+    By submitting this form, you agree to our{" "}
+    <Link href="/privacy" className="underline font-medium" style={{ color: BRAND }}>
+      Privacy Policy
+    </Link>.
+  </p>
+
+  <button
+    type="submit"
+    disabled={submitting}
+    aria-busy={submitting}
+    className="mt-1.5 h-11 rounded-full font-semibold text-white transition hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
+    style={{ backgroundColor: BRAND, boxShadow: "0 8px 22px rgba(40,183,213,.22)" }}
+  >
+    {submitting ? "Sending…" : "Get in Touch Now"}
+  </button>
+</form>
+
           </div>
+        {modalElement}
+
         </div>
       </section>
     </main>
