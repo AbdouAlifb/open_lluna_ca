@@ -10,7 +10,7 @@ import "@/styles/hero.css";
 import SectionTitle from "./SectionTitle";
 
 const BRAND = "#28B7D5";
-
+type CSSVars = { [K in `--${string}`]?: string | number };
 /* -------------------------------- Types -------------------------------- */
 type DomainKey =
   | "onDemand" | "law" | "automotive" | "rentals"
@@ -176,7 +176,7 @@ function ListCard({
       className={`rounded-2xl border p-4 sm:p-5 transition-all duration-500 ${
         shown ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
       } ${brand ? "bg-[color:var(--brand,#28B7D5)] text-white border-transparent" : "bg-white ring-1 ring-slate-200"}`}
-      style={{ ["--brand" as any]: BRAND, transitionDelay: `${delay}ms` }}
+   style={{ "--brand": BRAND, transitionDelay: `${delay}ms` } as React.CSSProperties & CSSVars}
     >
       <div className={`text-sm font-semibold ${brand ? "opacity-90" : "text-slate-600"}`}>{title}</div>
       <ul className="mt-2 space-y-1.5">
@@ -184,7 +184,7 @@ function ListCard({
           <li key={it} className="flex items-start gap-2">
             <span
               className={`mt-1 inline-block h-2 w-2 rounded-full ${brand ? "bg-white/80" : "bg-[color:var(--brand,#28B7D5)]"}`}
-              style={{ ["--brand" as any]: BRAND }}
+              style={{ "--brand": BRAND } as React.CSSProperties & CSSVars}
             />
             <span className={`${brand ? "text-white/95" : "text-slate-700"}`}>{it}</span>
           </li>
@@ -292,7 +292,7 @@ const scrollerRef = React.useRef<HTMLDivElement>(null);
             <span
               className="inline-flex h-12 w-12 items-center justify-center rounded-2xl ring-1 ring-[color:var(--brand,#28B7D5)]/30
                          bg-[color:var(--brand,#28B7D5)]/10 text-[color:var(--brand,#28B7D5)]"
-              style={{ ["--brand" as any]: BRAND }}
+              style={{ "--brand": BRAND } as React.CSSProperties & CSSVars}
             >
               <Icon className="h-6 w-6" />
             </span>
@@ -338,7 +338,7 @@ const scrollerRef = React.useRef<HTMLDivElement>(null);
                     key={c}
                     className="inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-sm ring-1 ring-slate-200 bg-slate-50"
                   >
-                    <Sparkles className="h-3.5 w-3.5 text-[color:var(--brand,#28B7D5)]" style={{ ["--brand" as any]: BRAND }} />
+                    <Sparkles className="h-3.5 w-3.5 text-[color:var(--brand,#28B7D5)]" style={{ "--brand": BRAND } as React.CSSProperties & CSSVars} />
                     {c}
                   </span>
                 ))}
@@ -356,7 +356,7 @@ const scrollerRef = React.useRef<HTMLDivElement>(null);
                     key={cs.title}
                     href={cs.href ?? "#"}
                     className="group rounded-2xl ring-1 ring-slate-200 p-4 bg-white hover:bg-[color:var(--brand,#28B7D5)] hover:text-white transition"
-                    style={{ ["--brand" as any]: BRAND }}
+                    style={{ "--brand": BRAND } as React.CSSProperties & CSSVars}
                   >
                     <div className="flex items-center justify-between">
                       <div className="text-base font-semibold">{cs.title}</div>
@@ -465,7 +465,7 @@ export default function DomainsExpertise() {
                     snap-start rounded-2xl bg-[#F6F8FA] ring-1 ring-black/5 shadow-sm
                     transition-transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[color:var(--brand,#28B7D5)]/60
                   "
-                  style={{ ["--brand" as any]: BRAND }}
+                  style={{ "--brand": BRAND } as React.CSSProperties & CSSVars}
                   aria-label={`Open ${d.title} details`}
                 >
                   <div className="p-7 md:p-8">
@@ -518,7 +518,7 @@ export default function DomainsExpertise() {
             onClick={() => scrollByCard("left")}
             disabled={!canLeft}
             className="inline-flex items-center justify-center rounded-full border px-3 py-2 bg-white text-[color:var(--brand,#28B7D5)] shadow disabled:opacity-40 disabled:cursor-not-allowed"
-            style={{ ["--brand" as any]: BRAND }}
+            style={{ "--brand": BRAND } as React.CSSProperties & CSSVars}
           >
             <ArrowLeft />
           </button>
@@ -527,7 +527,7 @@ export default function DomainsExpertise() {
             onClick={() => scrollByCard("right")}
             disabled={!canRight}
             className="inline-flex items-center justify-center rounded-full border px-3 py-2 bg-white text-[color:var(--brand,#28B7D5)] shadow disabled:opacity-40 disabled:cursor-not-allowed"
-            style={{ ["--brand" as any]: BRAND }}
+            style={{ "--brand": BRAND } as React.CSSProperties & CSSVars}
           >
             <ArrowRight />
           </button>

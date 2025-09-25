@@ -5,7 +5,7 @@ import { Resend } from "resend";
 export const runtime = "nodejs";         // Resend requires Node runtime
 export const dynamic = "force-dynamic";  // don't statically cache this route
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY || "re_U5wLAcj9_7gEMjPBt6HCmHdZSurNrVUwF");
 
 // Configure these in .env.local
 const BRAND = "#28B7D5";
