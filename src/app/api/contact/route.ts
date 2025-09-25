@@ -39,7 +39,7 @@ export async function POST(req: Request) {
       resend.emails.send({
         from: FROM_INTERNAL,
         to: [TO_INTERNAL],
-        reply_to: email, // makes replying easy
+        // reply_to: email, // makes replying easy
         subject: subjectInternal,
         html: htmlInternal,
         text: textInternal,
