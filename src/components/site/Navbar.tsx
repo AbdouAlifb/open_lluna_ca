@@ -20,24 +20,28 @@ const NAV = [
 export default function Navbar() {
   const pathname = usePathname();
   const isHome = pathname === "/";
-  const [solid, setSolid] = React.useState<boolean>(isHome ? false : true);
+  const isCaseStudy = pathname?.startsWith("/case-studies/");
+  const shouldStartTransparent = isHome || isCaseStudy;
+  
+  const [solid, setSolid] = React.useState<boolean>(!shouldStartTransparent);
 
   React.useEffect(() => {
-    if (!isHome) {
-      setSolid(true); // always solid off-home
+    if (!shouldStartTransparent) {
+      setSolid(true); // always solid off-home and off-case-study
       return;
     }
     const onScroll = () => setSolid(window.scrollY > 16);
+    // Check scroll position on mount (client-side only)
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, [isHome]);
+  }, [shouldStartTransparent]);
 
   // styles
   const headerBg     = solid ? "bg-white/95" : "bg-transparent";
   const headerBorder = solid ? "border-b border-black/10" : "";
-  // absolute over hero at top of home; sticky after scroll/off-home
-  const headerPos    = isHome && !solid ? "absolute inset-x-0 top-0" : "sticky top-0";
+  // absolute over hero at top of home/case-study; sticky after scroll/off-home
+  const headerPos    = shouldStartTransparent && !solid ? "absolute inset-x-0 top-0" : "sticky top-0";
 
   const linkIdle   = solid ? "text-slate-700 hover:text-slate-900" : "text-white/90 hover:text-white";
   const linkActive = solid ? "text-slate-900" : "text-white";
@@ -53,10 +57,10 @@ export default function Navbar() {
       style={!solid ? ({ background: "transparent" } as React.CSSProperties) : undefined}
     >
       <div className="mx-auto max-w-[1200px] px-5 h-20 flex items-center justify-between">
-        {/* Logo (white at rest on home) */}
+        {/* Logo (white at rest on home/case-study) */}
         <Link href="/" className="flex items-center gap-3 group" aria-label="Open Lluna — Home">
           <Image
-            src={isHome && !solid ? "/logo-white.png" : "/logo.png"}
+            src={shouldStartTransparent && !solid ? "/logo-white.png" : "/logo.png"}
             alt="Open Lluna"
             width={180}
             height={28}

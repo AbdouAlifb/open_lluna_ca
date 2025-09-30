@@ -54,6 +54,15 @@ const STUDIES: Study[] = [
     stats: ["60% Faster Screening", "Bias-Guardrails Enabled", "ATS & Calendar Sync"],
     href: "/case-studies/hiresense",
   },
+  {
+    title: "TaxMaroc – Morocco Tax Guide",
+    image: "/images/cases/5.png",
+    tags: ["Gov Tech", "Educational", "Multi-lingual"],
+    blurb:
+      "A comprehensive tax guide demystifying Morocco's tax system with clear breakdowns of VAT, corporate tax, income tax, and compliance requirements for citizens and businesses.",
+    stats: ["15K+ Monthly Users", "Arabic & French Support", "Interactive Tax Calculators"],
+    href: "/case-studies/taxmaroc",
+  },
 ];
 
 function Tag({ children }: { children: React.ReactNode }) {
