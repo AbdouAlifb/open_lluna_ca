@@ -29,7 +29,7 @@ const STUDIES: Study[] = [
   },
   {
     title: "Cardnd – Multi-Platform Car Rentals",
-    image: "/images/cases/2.jpg",
+    image: "/images/cases/cardnddemo.png",
     tags: ["Product Design", "Mobile", "Web Marketplace"],
     blurb:
       "A peer-to-peer rental experience inspired by Airbnb, with verified hosts, smart pricing, insurance flows, and frictionless checkout on mobile & web.",
