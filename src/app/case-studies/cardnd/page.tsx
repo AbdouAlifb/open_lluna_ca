@@ -130,7 +130,7 @@ export default function CardndCaseStudy() {
 
         <div className="relative z-10 mx-auto max-w-6xl px-4 py-20 md:py-28">
           <motion.h1
-            variants={revealUp}
+            
             initial="hidden"
             animate="show"
             className="text-4xl md:text-6xl font-black leading-[1.05] tracking-tight text-white"
@@ -140,7 +140,7 @@ export default function CardndCaseStudy() {
           </motion.h1>
 
           <motion.p
-            variants={revealUp}
+            
             initial="hidden"
             animate="show"
             transition={{ delay: 0.08 }}
@@ -150,7 +150,7 @@ export default function CardndCaseStudy() {
           </motion.p>
 
           <motion.div
-            variants={revealUp}
+            
             initial="hidden"
             animate="show"
             transition={{ delay: 0.16 }}
@@ -198,7 +198,7 @@ export default function CardndCaseStudy() {
             ].map((s, i) => (
               <motion.div
                 key={s.label}
-                variants={revealUp}
+                
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.3 }}
@@ -334,7 +334,7 @@ export default function CardndCaseStudy() {
             {FEATURES.map((f, i) => (
               <motion.div
                 key={f.title}
-                variants={revealUp}
+                
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.2 }}
@@ -364,7 +364,7 @@ export default function CardndCaseStudy() {
             {STACK.map((b, i) => (
               <motion.div
                 key={b.title}
-                variants={revealUp}
+                
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.2 }}
@@ -401,7 +401,7 @@ export default function CardndCaseStudy() {
             {IMPACT.map((r, i) => (
               <motion.div
                 key={r.kpi}
-                variants={revealUp}
+                
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.2 }}
@@ -426,7 +426,7 @@ export default function CardndCaseStudy() {
             {TIMELINE.map((b, i) => (
               <motion.div
                 key={b.t}
-                variants={revealUp}
+                
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.2 }}

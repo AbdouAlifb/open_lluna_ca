@@ -58,7 +58,7 @@ export default function WashMinuteCaseStudy() {
         {/* Content */}
         <div className="relative z-10 mx-auto max-w-5xl px-4 text-center">
           <motion.h1
-            variants={revealUp}
+            
             initial="hidden"
             animate="show"
             className="text-4xl md:text-6xl font-black text-white leading-[1.05] tracking-tight"
@@ -69,7 +69,7 @@ export default function WashMinuteCaseStudy() {
           </motion.h1>
 
           <motion.p
-            variants={revealUp}
+            
             initial="hidden"
             animate="show"
             transition={{ delay: 0.08 }}
@@ -82,7 +82,7 @@ export default function WashMinuteCaseStudy() {
 
           {/* CTAs */}
           <motion.div
-            variants={revealUp}
+            
             initial="hidden"
             animate="show"
             transition={{ delay: 0.16 }}
@@ -142,7 +142,7 @@ export default function WashMinuteCaseStudy() {
             ].map((s, i) => (
               <motion.div
                 key={s.label}
-                variants={revealUp}
+                
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.3 }}
@@ -164,7 +164,7 @@ export default function WashMinuteCaseStudy() {
       {/* CHALLENGE */}
       <AnimatedSection className="py-16 md:py-24 bg-slate-50">
         <div className="mx-auto max-w-7xl px-4 grid md:grid-cols-2 gap-12 items-center">
-          <motion.div variants={revealUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
+          <motion.div  initial="hidden" whileInView="show" viewport={{ once: true }}>
             <Badge color={ORANGE}>The Challenge</Badge>
             <h2 className="text-3xl md:text-5xl font-bold mt-3 mb-6">
               Make car care as simple as ordering a ride
@@ -205,7 +205,7 @@ export default function WashMinuteCaseStudy() {
       <AnimatedSection className="py-16 md:py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4">
           <div className="text-center mb-12">
-            <motion.div variants={revealUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
+            <motion.div  initial="hidden" whileInView="show" viewport={{ once: true }}>
               <Badge color={BRAND}>Our Approach</Badge>
               <h2 className="text-3xl md:text-5xl font-bold mt-3">Co-design + Agile sprints</h2>
               <p className="mt-3 text-lg text-slate-600">
@@ -244,7 +244,7 @@ export default function WashMinuteCaseStudy() {
             ].map((c, i) => (
               <motion.div
                 key={c.title}
-                variants={revealUp}
+                
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.3 }}
@@ -261,7 +261,7 @@ export default function WashMinuteCaseStudy() {
       <AnimatedSection className="py-16 md:py-24 bg-gradient-to-br from-slate-50 to-slate-100">
         <div className="mx-auto max-w-7xl px-4">
           <div className="text-center mb-12">
-            <motion.div variants={revealUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
+            <motion.div  initial="hidden" whileInView="show" viewport={{ once: true }}>
               <Badge color={BRAND}>The Solution</Badge>
               <h2 className="text-3xl md:text-5xl font-bold mt-3">
                 A two-sided marketplace with real-time dispatch
@@ -276,7 +276,7 @@ export default function WashMinuteCaseStudy() {
             {FEATURES.map((f, i) => (
               <motion.div
                 key={f.title}
-                variants={revealUp}
+                
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.2 }}
@@ -310,7 +310,7 @@ export default function WashMinuteCaseStudy() {
             </div>
           </motion.div>
 
-          <motion.div variants={revealUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
+          <motion.div  initial="hidden" whileInView="show" viewport={{ once: true }}>
             <Badge color={ORANGE}>How it Works</Badge>
             <ul className="mt-3 space-y-3 text-slate-700 text-[17px] leading-7">
               <li>
@@ -335,7 +335,7 @@ export default function WashMinuteCaseStudy() {
       {/* TECH STACK */}
       <AnimatedSection className="py-16 md:py-24 bg-slate-50">
         <div className="mx-auto max-w-7xl px-4">
-          <motion.div variants={revealUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="text-center mb-10">
+          <motion.div  initial="hidden" whileInView="show" viewport={{ once: true }} className="text-center mb-10">
             <Badge color={BRAND}>Tech Stack</Badge>
             <h2 className="text-3xl md:text-5xl font-bold mt-3">Built for reliability & speed</h2>
             <p className="mt-3 text-lg text-slate-600">
@@ -347,7 +347,7 @@ export default function WashMinuteCaseStudy() {
             {STACK.map((b, i) => (
               <motion.div
                 key={b.title}
-                variants={revealUp}
+                
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.2 }}
@@ -397,7 +397,7 @@ export default function WashMinuteCaseStudy() {
             ].map((r, i) => (
               <motion.div
                 key={r.kpi}
-                variants={revealUp}
+                
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.2 }}
@@ -413,7 +413,7 @@ export default function WashMinuteCaseStudy() {
           </div>
 
           <motion.div
-            variants={revealUp}
+            
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
@@ -434,7 +434,7 @@ export default function WashMinuteCaseStudy() {
             {TIMELINE.map((b, i) => (
               <motion.div
                 key={b.t}
-                variants={revealUp}
+                
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.2 }}
@@ -458,7 +458,7 @@ export default function WashMinuteCaseStudy() {
       {/* DEMO — single video */}
       <AnimatedSection className="py-16 md:py-24 bg-white">
         <div className="mx-auto max-w-4xl px-4">
-          <motion.div variants={revealUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="text-center mb-8">
+          <motion.div  initial="hidden" whileInView="show" viewport={{ once: true }} className="text-center mb-8">
             <Badge color={ORANGE}>Demo</Badge>
             <h2 className="text-3xl md:text-5xl font-bold mt-3">Product Walkthrough</h2>
             <p className="mt-3 text-lg text-slate-600">
