@@ -40,7 +40,10 @@ export default function WashMinuteCaseStudy() {
   return (
     <main className="min-h-screen bg-white">
       {/* HERO */}
-      <section className="relative min-h-[78vh] md:min-h-screen flex items-center justify-center overflow-hidden">
+ <section
+   className="relative min-h-[78vh] md:min-h-screen flex items-center justify-center overflow-hidden
+              pt-[calc(64px+env(safe-area-inset-top))] md:pt-0"
+ >
         {/* Background Video */}
         <video
           autoPlay
