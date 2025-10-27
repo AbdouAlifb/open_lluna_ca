@@ -171,16 +171,18 @@ export default function LoanFlowLanding() {
                 transition: 'all 0.2s ease',
                 border: 'none'
               }}
-              onMouseEnter={(e) => {
-                e.target.style.backgroundColor = '#FFF3B0';
-                e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 8px 24px rgba(224, 159, 62, 0.4)';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.backgroundColor = '#E09F3E';
-                e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = 'none';
-              }}
+                onMouseEnter={(e) => {
+                  const target = e.currentTarget as HTMLAnchorElement;
+                  target.style.backgroundColor = '#FFF3B0';
+                  target.style.transform = 'translateY(-2px)';
+                  target.style.boxShadow = '0 8px 24px rgba(224, 159, 62, 0.4)';
+                }}
+                onMouseLeave={(e) => {
+                  const target = e.currentTarget as HTMLAnchorElement;
+                  target.style.backgroundColor = '#E09F3E';
+                  target.style.transform = 'translateY(0)';
+                  target.style.boxShadow = 'none';
+                }}
             >
               Start calculating
               <ArrowRight size={20} weight="bold" />
@@ -203,12 +205,14 @@ export default function LoanFlowLanding() {
                 transition: 'all 0.2s ease'
               }}
               onMouseEnter={(e) => {
-                e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-                e.target.style.borderColor = '#E09F3E';
+                const target = e.currentTarget as HTMLAnchorElement;
+                target.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                target.style.borderColor = '#E09F3E';
               }}
               onMouseLeave={(e) => {
-                e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
-                e.target.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                const target = e.currentTarget as HTMLAnchorElement;
+                target.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
+                target.style.borderColor = 'rgba(255, 255, 255, 0.1)';
               }}
             >
               See how it works
@@ -519,14 +523,16 @@ export default function LoanFlowLanding() {
               transition: 'all 0.2s ease'
             }}
             onMouseEnter={(e) => {
-              e.target.style.backgroundColor = '#FFF3B0';
-              e.target.style.transform = 'translateY(-2px)';
-              e.target.style.boxShadow = '0 12px 32px rgba(224, 159, 62, 0.4)';
+              const target = e.currentTarget as HTMLAnchorElement;
+              target.style.backgroundColor = '#FFF3B0';
+              target.style.transform = 'translateY(-2px)';
+              target.style.boxShadow = '0 12px 32px rgba(224, 159, 62, 0.4)';
             }}
             onMouseLeave={(e) => {
-              e.target.style.backgroundColor = '#E09F3E';
-              e.target.style.transform = 'translateY(0)';
-              e.target.style.boxShadow = 'none';
+              const target = e.currentTarget as HTMLAnchorElement;
+              target.style.backgroundColor = '#E09F3E';
+              target.style.transform = 'translateY(0)';
+              target.style.boxShadow = 'none';
             }}
           >
             Start your project
@@ -539,7 +545,14 @@ export default function LoanFlowLanding() {
 }
 
 // Product Card Component
-function ProductCard({ icon, title, description, features }) {
+interface ProductCardProps {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  features: string[];
+}
+
+function ProductCard({ icon, title, description, features }: ProductCardProps) {
   const [isHovered, setIsHovered] = React.useState(false);
 
   return (
@@ -602,7 +615,13 @@ function ProductCard({ icon, title, description, features }) {
 }
 
 // Feature Item Component
-function FeatureItem({ icon, title, description }) {
+interface FeatureItemProps {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}
+
+function FeatureItem({ icon, title, description }: FeatureItemProps) {
   return (
     <div style={{
       display: 'flex',
@@ -634,7 +653,13 @@ function FeatureItem({ icon, title, description }) {
 }
 
 // Stat Badge Component
-function StatBadge({ icon, label, value }) {
+interface StatBadgeProps {
+  icon: React.ReactNode;
+  label: string;
+  value: string;
+}
+
+function StatBadge({ icon, label, value }: StatBadgeProps) {
   return (
     <div style={{
       textAlign: 'center'
