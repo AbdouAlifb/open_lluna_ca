@@ -9,15 +9,11 @@ export default function LoanFlowLanding() {
       fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
       backgroundColor: '#2a2a2a',
       color: '#fff'
-    }}>
+    }} >
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-        }
+        
 
         html {
           scroll-behavior: smooth;
@@ -241,8 +237,8 @@ export default function LoanFlowLanding() {
                 aspectRatio: '16/9'
               }}>
                 <img 
-                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80"
-                  alt="Financial analytics dashboard"
+                  src="/images/atm.jpg"
+                  alt="atm machine"
                   style={{
                     width: '100%',
                     height: '100%',
