@@ -63,6 +63,15 @@ const STUDIES: Study[] = [
     stats: ["15K+ Monthly Users", "Arabic & French Support", "Interactive Tax Calculators"],
     href: "/case-studies/taxmaroc",
   },
+  {
+  title: "LoanFlow – Morocco Loan Calculator",
+  image: "/images/cases/loanflow.jpeg",
+  tags: ["FinTech", "Calculator", "Educational"],
+  blurb:
+    "A smart loan calculator and guide for Moroccan borrowers. Estimate monthly payments, understand interest rates, explore amortization schedules, and learn about credit requirements with clear, actionable insights.",
+  stats: ["Instant Payment Estimates", "Full Amortization Schedules", "Credit Requirement Guide"],
+  href: "/case-studies/loanflow",
+}
 ];
 
 function Tag({ children }: { children: React.ReactNode }) {
