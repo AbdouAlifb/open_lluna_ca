@@ -14,6 +14,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import SectionTitle from "./SectionTitle";
+import BookMeetingButton from "@/components/site/BookMeetingButton";
 
 const BRAND = "#28B7D5";
 
@@ -189,15 +190,12 @@ export default function HowWeWork() {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href="/contact?topic=discovery"
+              <BookMeetingButton
+                label="Start a Discovery Call"
                 className="inline-flex items-center rounded-full px-6 py-3 font-medium border transition
-                           bg-[color:var(--brand,#28B7D5)] text-white border-[color:var(--brand,#28B7D5)]
-                           hover:bg-transparent hover:text-[color:var(--brand,#28B7D5)]"
-                style={{ ["--brand" as any]: BRAND }}
-              >
-                Start a Discovery Call
-              </a>
+                           bg-[#28B7D5] text-white border-[#28B7D5]
+                           hover:bg-transparent hover:text-[#28B7D5] cursor-pointer"
+              />
               <a
                 href="/services"
                 className="inline-flex items-center rounded-full px-6 py-3 font-medium border transition

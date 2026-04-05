@@ -26,6 +26,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { useContactSubmit } from "@/hooks/useContactSubmit";
+import BookMeetingButton from "@/components/site/BookMeetingButton";
 
 const BRAND = "#28B7D5";
 
@@ -203,14 +204,11 @@ export default function SoftwareDevelopmentClient() {
               so your product can scale without surprises.
             </p>
             <div className="mt-7">
-              <Link
-                href="/contact?topic=software"
-                className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-white transition"
+              <BookMeetingButton
+                label="Start with a Free Consultation"
+                className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-white transition cursor-pointer"
                 style={{ backgroundColor: BRAND, boxShadow: "0 8px 24px rgba(40,183,213,.25)" }}
-              >
-                Start with a Free Consultation
-                <Rocket className="h-5 w-5" />
-              </Link>
+              />
             </div>
           </div>
 
@@ -257,14 +255,11 @@ export default function SoftwareDevelopmentClient() {
           <Card title="Event Systems" text="Streaming, CQRS, and reliable background processing." />
         </div>
         <div className="mt-6">
-          <Link
-            href="/contact?topic=software"
-            className="inline-flex items-center gap-2 rounded-full px-5 py-3 font-semibold text-white"
+          <BookMeetingButton
+            label="Discuss Project Scope"
+            className="inline-flex items-center gap-2 rounded-full px-5 py-3 font-semibold text-white cursor-pointer"
             style={{ backgroundColor: BRAND }}
-          >
-            Discuss Project Scope
-            <ArrowRight className="h-4 w-4" />
-          </Link>
+          />
         </div>
       </Section>
 

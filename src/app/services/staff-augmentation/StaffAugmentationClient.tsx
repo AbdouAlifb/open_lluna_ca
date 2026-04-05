@@ -27,6 +27,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { useContactSubmit } from "@/hooks/useContactSubmit";
+import BookMeetingButton from "@/components/site/BookMeetingButton";
 
 const BRAND = "#28B7D5";
 
@@ -202,14 +203,11 @@ export default function StaffAugmentationClient() {
               or hybrid, always aligned to your roadmap.
             </p>
             <div className="mt-7">
-              <Link
-                href="/contact?topic=staff-augmentation"
-                className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-white transition"
+              <BookMeetingButton
+                label="Book Talent Today"
+                className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-white transition cursor-pointer"
                 style={{ backgroundColor: BRAND, boxShadow: "0 8px 24px rgba(40,183,213,.25)" }}
-              >
-                Book Talent Today
-                <Rocket className="h-5 w-5" />
-              </Link>
+              />
             </div>
           </div>
 

@@ -1,5 +1,6 @@
 "use client";
 import * as React from "react";
+import BookMeetingButton from "@/components/site/BookMeetingButton";
 
 export default function Hero() {
   // --- video playlist (3 clips, loops in order) ---
@@ -85,14 +86,12 @@ export default function Hero() {
 
           {/* CTAs */}
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <a
-              href="/contact"
+            <BookMeetingButton
+              label="Book a Meeting"
               className="inline-flex items-center rounded-full px-6 py-3
                          bg-[#4CBED9] text-white font-medium shadow-md hover:brightness-110
-                         focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
-            >
-              Schedule a Call
-            </a>
+                         focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 cursor-pointer"
+            />
 
             <a
               href="/services"

@@ -1,18 +1,16 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import BookMeetingButton from "@/components/site/BookMeetingButton";
 
 const BRAND = "#28B7D5";
 
 type Props = {
   className?: string;
-  ctaHref?: string;
 };
 
 export default function BusinessCalloutCard({
   className = "",
-  ctaHref = "/contact?topic=consultation",
 }: Props) {
   return (
     <section className={`relative ${className}`}>
@@ -42,20 +40,18 @@ export default function BusinessCalloutCard({
               </p>
 
               <div className="mt-7">
-                <Link
-                  href={ctaHref}
+                <BookMeetingButton
+                  label="Book Your Free Consultation Today"
                   className="
                     inline-flex items-center justify-center rounded-full
                     px-6 py-3 sm:px-7 sm:py-3.5 font-semibold text-white
-                    shadow-lg transition
+                    shadow-lg transition cursor-pointer
                   "
                   style={{
                     backgroundColor: BRAND,
                     boxShadow: "0 10px 28px rgba(40,183,213,.28)",
                   }}
-                >
-                  Book Your Free Consultation Today
-                </Link>
+                />
               </div>
             </div>
 
